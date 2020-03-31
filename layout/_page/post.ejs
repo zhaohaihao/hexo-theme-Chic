@@ -10,6 +10,8 @@
             <h1 class="post-title"><%= page.title %></h1>
             <% if(theme.post_meta_enable){ %>
                 <div class="post-meta">
+                    <%- date(page.date, theme.date_format_v1) %>
+                <!--
                     <% if(theme.post_author_enable && config.author){ %>
                         <a itemprop="author" rel="author" href="/"><%- config.author %></a> 
                     <% } %>
@@ -26,6 +28,7 @@
                             <% }) %>
                         </span>
                     <% } %>
+                -->
                 </div>
             <% } %>
         </header>

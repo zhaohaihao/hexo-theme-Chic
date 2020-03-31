@@ -23,7 +23,7 @@ avatar: /image/avatar.jpg
 ## Complete url after key words.
 ## Unused key can be commented out.
 links:
-  Blog: /archives
+  Blog-博客: /archives
   # Category:
   # Tags: 
   # Link:
@@ -33,7 +33,9 @@ links:
   # Gallery:
   # RSS:
   # AliPay:
-  ZhiHu: https://www.zhihu.com/people/zhaohaihao
+  CSDN: https://blog.csdn.net/dh_chao
+  tubiaozhizuomoban-语雀: https://www.yuque.com/zhaohaihao
+  ZhiHu-知乎: https://www.zhihu.com/people/zhaohaihao
   # LinkedIn:
   # FaceBook:
   # Twitter:
@@ -50,6 +52,7 @@ links:
   # Weibo:
   # WeChat:
   Github: https://github.com/zhaohaihao
+  Youxiang-邮箱: mailto:zhh2933@gmail.com
 
 # how links show: you have 2 choice--text or icon.
 links_text_enable: false
@@ -86,7 +89,8 @@ page_title_enable: true
 ## You can customize the date format as defined in
 ## http://momentjs.com/docs/#/displaying/format/
 # date_format: MMMM D, YYYY
-date_format: YYYY-MM-D
+date_format: MM-D
+date_format_v1: YYYY-MM-D
 time_format: H:mm:ss
 
 # stylesheets loaded in the <head>

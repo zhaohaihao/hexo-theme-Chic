@@ -6,7 +6,19 @@
   padding-top 2rem
 
   .archive-item
-    margin-left 2rem
+    //margin-left 2rem
+    margin-left 0rem
+
+    &:hover
+      color $light-global-link-hover-color
+      transition 0.2s ease-out
+      transform translateX(4px)
+
+    .dark-theme &
+      //color $dark-global-link-color
+
+      &:hover
+        color $dark-global-link-hover-color
 
 .archive-item-link
     display inline-block
@@ -28,10 +40,29 @@
         text-decoration none
         transition color 0.2s ease, border-color 0.2s ease, background 0.2s ease, opacity 0.2s ease
 
-  .archive-item-date
-    float right
-    text-align right
-    color $light-font-secondary-color
+.archive-item-date
+  float none
+  text-align right
+  color $light-font-secondary-color
 
-    .dark-theme & 
-      color $dark-font-secondary-color
+  &:hover
+    color $light-global-link-hover-color
+
+  .dark-theme & 
+    color $dark-font-secondary-color
+
+    &:hover
+      color $dark-global-link-hover-color
+
+.archive-item-title
+  margin-left 20px
+  //color $light-font-secondary-color
+
+  &:hover
+    color $light-global-link-hover-color
+
+  .dark-theme & 
+    //color $dark-font-secondary-color
+
+    &:hover
+      color $dark-global-link-hover-color

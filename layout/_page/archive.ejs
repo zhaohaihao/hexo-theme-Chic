@@ -7,12 +7,13 @@
         <% var cur_year = post.date.year(); %>
 
         <% if(last_year !== cur_year){ %>
-            <h3><%- cur_year %></h3>
+            <h2><%- cur_year %></h2>
         <% last_year = cur_year; } %>
 
         <article class="archive-item">
-            <a class="archive-item-link" href="<%- url_for(post.path) %>"><%= post.title %></a>
             <span class="archive-item-date"><%- date(post.date, theme.date_format) %></span>
+            <span class="archive-item-title"><a href="<%- url_for(post.path) %>"><%= post.title %></a></span>
+            <!--<span class="archive-item-date"><%- date(post.date, theme.date_format) %></span>-->
         </article>
     <% }) %>
     <%- partial('_partial/paginator') %>
