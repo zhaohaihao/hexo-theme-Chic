@@ -9,18 +9,19 @@
             <% if (theme.links !== undefined) { %>
                 <% for (var key in theme.links){ %>
 
-                    <% 
+                    <%  
+                        var desc;
                         var desc_0 = key.split("-")[0];
                         var desc_1 = key.split("-")[1];
                         if (desc_1 === undefined) {
-                            key = desc_0;
+                            desc = desc_0;
                         } else {
-                            key = desc_1;
+                            desc = desc_1;
                         }
                     %>
-                    <a class="link-item" title="<%- key %>" href="<%= theme.links[key] %>">
+                    <a class="link-item" title="<%- desc %>" href="<%= theme.links[key] %>">
                         <% if(theme.links_text_enable) { %>
-                            <%= key %>
+                            <%= desc %>
                         <%}%>
                         <%if(theme.links_icon_enable){ %>
                             <i class="iconfont icon-<%- desc_0.toLowerCase() %>"></i>
