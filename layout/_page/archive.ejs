@@ -10,7 +10,7 @@
             <h2><%- cur_year %></h2>
         <% last_year = cur_year; } %>
 
-        <article class="archive-item">
+        <article class="archive-item" style="margin: 5px 0;">
             <span class="archive-item-date"><%- date(post.date, theme.date_format) %></span>
             <span class="archive-item-title"><a href="<%- url_for(post.path) %>"><%= post.title %></a></span>
             <!--<span class="archive-item-date"><%- date(post.date, theme.date_format) %></span>-->
