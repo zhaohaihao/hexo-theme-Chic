@@ -28,6 +28,18 @@
     };
 })();
 
+function GetUrlRelativePath() {
+　　　var url = document.location.toString();
+　　　var arrUrl = url.split("//");
+
+　　　var start = arrUrl[1].indexOf("/");
+　　　var relUrl = arrUrl[1].substring(start);//stop省略，截取从start开始到结尾的所有字符
+
+　　　if(relUrl.indexOf("?") != -1){
+　　　　　relUrl = relUrl.split("?")[0];
+　　　}
+　　　return relUrl;
+}
 
 document.ready(
     // toggleTheme function.
@@ -36,30 +48,47 @@ document.ready(
         var _Blog = window._Blog || {};
         const currentTheme = window.localStorage && window.localStorage.getItem('theme');
         const isDark = currentTheme === 'dark';
+        const pageIsRight = GetUrlRelativePath() === '/archives/';
         if (isDark) {
             document.getElementById("switch_default").checked = true;
             // mobile
-            document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            // document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            document.getElementById("mobile-toggle-theme").innerHTML = "<i class='iconfont icon-taiyang'></i>"
         } else {
             document.getElementById("switch_default").checked = false;
             // mobile
-            document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            // document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+            document.getElementById("mobile-toggle-theme").innerHTML = "<i class='iconfont icon-taiyang'></i>"
         }
         _Blog.toggleTheme = function () {
             if (isDark) {
                 document.getElementsByTagName('body')[0].classList.add('dark-theme');
+                if (pageIsRight) {
+                    document.getElementsByClassName('new-meta-item-posts')[0].classList.add('dark-theme');
+                }
                 // mobile
-                document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+                // document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+                document.getElementById("mobile-toggle-theme").innerHTML = "<i class='iconfont icon-taiyang'></i>"
             } else {
                 document.getElementsByTagName('body')[0].classList.remove('dark-theme');
+                if (pageIsRight) {
+                    document.getElementsByClassName('new-meta-item-posts')[0].classList.remove('dark-theme');
+                }
                 // mobile
-                document.getElementById("mobile-toggle-theme").innerText = "· Light"
+                // document.getElementById("mobile-toggle-theme").innerText = "· Light"
+                document.getElementById("mobile-toggle-theme").innerHTML = "<i class='iconfont icon-yueliang'></i>"
             }
             document.getElementsByClassName('toggleBtn')[0].addEventListener('click', () => {
                 if (document.getElementsByTagName('body')[0].classList.contains('dark-theme')) {
                     document.getElementsByTagName('body')[0].classList.remove('dark-theme');
+                    if (pageIsRight) {
+                        document.getElementsByClassName('new-meta-item-posts')[0].classList.remove('dark-theme');
+                    }
                 } else {
                     document.getElementsByTagName('body')[0].classList.add('dark-theme');
+                    if (pageIsRight) {
+                        document.getElementsByClassName('new-meta-item-posts')[0].classList.add('dark-theme');
+                    }
                 }
                 window.localStorage &&
                 window.localStorage.setItem('theme', document.body.classList.contains('dark-theme') ? 'dark' : 'light',)
@@ -68,13 +97,20 @@ document.ready(
             document.getElementById('mobile-toggle-theme').addEventListener('click', () => {
                 if (document.getElementsByTagName('body')[0].classList.contains('dark-theme')) {
                     document.getElementsByTagName('body')[0].classList.remove('dark-theme');
+                    if (pageIsRight) {
+                        document.getElementsByClassName('new-meta-item-posts')[0].classList.remove('dark-theme');
+                    }
                     // mobile
-                    document.getElementById("mobile-toggle-theme").innerText = "· Light"
-
+                    // document.getElementById("mobile-toggle-theme").innerText = "· Light"
+                    document.getElementById("mobile-toggle-theme").innerHTML = "<i class='iconfont icon-yueliang'></i>"
                 } else {
                     document.getElementsByTagName('body')[0].classList.add('dark-theme');
+                    if (pageIsRight) {
+                        document.getElementsByClassName('new-meta-item-posts')[0].classList.add('dark-theme');
+                    }
                     // mobile
-                    document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+                    // document.getElementById("mobile-toggle-theme").innerText = "· Dark"
+                    document.getElementById("mobile-toggle-theme").innerHTML = "<i class='iconfont icon-taiyang'></i>"
                 }
                 window.localStorage &&
                 window.localStorage.setItem('theme', document.body.classList.contains('dark-theme') ? 'dark' : 'light',)

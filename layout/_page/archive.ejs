@@ -1,4 +1,7 @@
 <div class="post-wrap archive">
+    <% if (url_for(page.path) === '/archives/index.html') { %>
+        <div class="new-meta-item-posts">嗯... 目前共计 <%- site.posts.length; %> 篇文章。 继续努力</div>
+    <% } %>
     <% var last_year = ''; %>
     <% page.posts.each(function (post) { %>
         <% var cur_year = post.date.year(); %>
